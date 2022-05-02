@@ -49,6 +49,7 @@ int main()
 	g.add_edge('d', 'f');
 
 	dfs(g, 'a');
+	g.depth_first_traversal('a');
 
 	//g.print_graph();
 }

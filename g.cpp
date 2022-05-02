@@ -38,8 +38,9 @@ std::vector<char> Graph::get_neighbours(char node)
 	return adjacency_list[node];
 }
 
-void depth_first_traversal(char start_node)
+void Graph::depth_first_traversal(char start_node)
 {
+	std::cout << "DEPTH FIRST TRAVERSAL" << std::endl;
 	std::stack<char> s;
 	s.push(start_node);
 
@@ -47,8 +48,8 @@ void depth_first_traversal(char start_node)
 	{
 		char c = s.top();
 		s.pop();
-		cout << c << " ";
-		for (char ch : s) s.push(ch);
+		std::cout << c << " ";
+		for (char ch : adjacency_list[c]) s.push(ch);
 	}
-
+	std::cout << std::endl;
 }
