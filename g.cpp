@@ -31,3 +31,8 @@ void Graph::print_neighbours(char node)
 		std::cout << c << " ";
 	std::cout << std::endl;
 }
+
+std::vector<char> Graph::get_neighbours(char node)
+{
+	return adjacency_list[node];
+}

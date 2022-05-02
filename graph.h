@@ -13,4 +13,5 @@ public:
 	void add_edge(char node1, char node2);
 	void print_graph();
 	void print_neighbours(char node);
+	std::vector<char> get_neighbours(char node);
 };
