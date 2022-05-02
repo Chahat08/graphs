@@ -2,6 +2,7 @@
 
 #pragma once
 #include <iostream>
+#include <stack>
 #include "graph.h"
 
 void Graph::add_node(char node)
@@ -35,4 +36,19 @@ void Graph::print_neighbours(char node)
 std::vector<char> Graph::get_neighbours(char node)
 {
 	return adjacency_list[node];
+}
+
+void depth_first_traversal(char start_node)
+{
+	std::stack<char> s;
+	s.push(start_node);
+
+	while (!s.empty())
+	{
+		char c = s.top();
+		s.pop();
+		cout << c << " ";
+		for (char ch : s) s.push(ch);
+	}
+
 }
