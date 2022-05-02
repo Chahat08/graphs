@@ -15,4 +15,5 @@ public:
 	void print_neighbours(char node);
 	std::vector<char> get_neighbours(char node);
 	void depth_first_traversal(char start_node);
+	void breadth_first_traversal(char start_node);
 };

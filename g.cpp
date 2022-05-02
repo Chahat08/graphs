@@ -3,6 +3,7 @@
 #pragma once
 #include <iostream>
 #include <stack>
+#include <queue>
 #include "graph.h"
 
 void Graph::add_node(char node)
@@ -51,5 +52,22 @@ void Graph::depth_first_traversal(char start_node)
 		std::cout << c << " ";
 		for (char ch : adjacency_list[c]) s.push(ch);
 	}
+	std::cout << std::endl;
+}
+
+void Graph::breadth_first_traversal(char start_node)
+{
+	std::cout << "BREADTH FIRST TRAVERSAL" << std::endl;
+	std::queue<char> q;
+	q.push(start_node);
+
+	while (!q.empty())
+	{
+		char c = q.front();
+		for (char ch : adjacency_list[c]) q.push(ch);
+		std::cout << c << " ";
+		q.pop();
+	}
+
 	std::cout << std::endl;
 }
