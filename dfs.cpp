@@ -31,6 +31,13 @@ void dfs(Graph g, char start_node)
 	cout << endl;
 }
 
+void dfs_rec(Graph g, char a)
+{
+	cout << a << " ";
+	vector<char> v = g.get_neighbours(a);
+	for (char c : v) dfs_rec(g, c);
+}
+
 int main()
 {
 	Graph g;
@@ -49,7 +56,8 @@ int main()
 	g.add_edge('d', 'f');
 
 	dfs(g, 'a');
-	g.depth_first_traversal('a');
+	cout << endl;
+	dfs_rec(g, 'a');
 
 	//g.print_graph();
 }
