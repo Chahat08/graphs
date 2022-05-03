@@ -71,3 +71,19 @@ void Graph::breadth_first_traversal(char start_node)
 
 	std::cout << std::endl;
 }
+
+bool Graph::hasPath(char src, char dest)
+{
+	// has path using depth first traversal
+	std::stack<char> s;
+	s.push(src);
+
+	while (!s.empty())
+	{
+		char c = s.top();
+		if (c == dest) return true;
+		s.pop();
+		for (char ch : adjacency_list[c]) s.push(ch);
+	}
+	return false;
+}

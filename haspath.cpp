@@ -13,6 +13,18 @@ HAS PATH PROBLEM STATEMENT:
 	*			else return false
 */
 
+/*
+COMPLEXITIES:
+e = no of edges, n = no of nodes
+
+	Time: O(e) [Because we might have to look through all the edges to check]
+	Space: O(n) [Because we might have to store in all the nodes in the stack/queue before starting popping]
+
+	Time: O(n^2)
+	Space: O(n)
+	Because in the worst case scenario, no of edges = square of no of nodes
+*/
+
 #include <iostream>
 #include <stack>
 #include <queue>
