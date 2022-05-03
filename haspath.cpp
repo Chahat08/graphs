@@ -5,8 +5,17 @@ HAS PATH PROBLEM STATEMENT:
 	Given two nodes: src and dest, return true if there exists a path bw the two,
 	and false otherwise.
 */
+
+/*
+	* Approach: Start dfs or bfs from the src node
+	*			if dest node is encountered
+	*			return true
+	*			else return false
+*/
+
 #include <iostream>
 #include <stack>
+#include <queue>
 #include <vector>
 #include "graph.h"
 
@@ -15,12 +24,6 @@ using namespace std;
 bool hasPath1(Graph g, char src, char dest)
 {
 	// using depth first traversal
-	/*
-	* Approach: Start dfs from the src node
-	*			if dest node is encountered
-	*			return true
-	*			else return false
-	*/
 
 	stack<char> s;
 	s.push(src);
@@ -36,7 +39,24 @@ bool hasPath1(Graph g, char src, char dest)
 	}
 
 	return false;
+}
 
+bool hasPath2(Graph g, char src, char dest)
+{
+	// using breadth first traversal
+
+	queue<char> q;
+	q.push(src);
+
+	while (!q.empty())
+	{
+		char c = q.front();
+		if (c == dest) return true;
+		q.pop();
+		vector<char> v = g.get_neighbours(c);
+		for (char ch : v) q.push(ch);
+	}
+	return false;
 }
 
 int main()
@@ -60,7 +80,13 @@ int main()
 	if (hasPath1(g, 'h', 'i')) cout << "yes";
 	else cout << "no";
 
+	if (hasPath2(g, 'h', 'i')) cout << "yes";
+	else cout << "no";
+
 	if (hasPath1(g, 'i', 'h')) cout << "yes";
+	else cout << "no";
+
+	if (hasPath2(g, 'i', 'h')) cout << "yes";
 	else cout << "no";
 
 	return 0;
