@@ -16,6 +16,13 @@ void Graph::add_edge(char node1, char node2)
 	adjacency_list[node1].push_back(node2);
 }
 
+void Graph::add_undirected_edge(char node1, char node2)
+{
+	// add an edge from n1 to n2 and vice versa;
+	adjacency_list[node1].push_back(node2);
+	adjacency_list[node2].push_back(node1);
+}
+
 void Graph::print_graph()
 {
 	for (auto& x : adjacency_list)
@@ -37,6 +44,14 @@ void Graph::print_neighbours(char node)
 std::vector<char> Graph::get_neighbours(char node)
 {
 	return adjacency_list[node];
+}
+
+std::vector<char> Graph::get_nodes()
+{
+	// returns a vector<char> containing all nodes in the graph.
+	std::vector<char> v;
+	for (auto& x : adjacency_list) v.push_back(x.first);
+	return v;
 }
 
 void Graph::depth_first_traversal(char start_node)
@@ -87,3 +102,4 @@ bool Graph::hasPath(char src, char dest)
 	}
 	return false;
 }
+

@@ -1,4 +1,4 @@
-/*
+ /*
 HAS PATH PROBLEM STATEMENT:
 
 	You have a directed, acyclic graph. 
@@ -89,17 +89,20 @@ int main()
 	g.add_edge('i', 'k');
 	g.add_edge('g', 'h');
 
-	if (hasPath1(g, 'h', 'i')) cout << "yes";
-	else cout << "no";
+	if (hasPath1(g, 'h', 'i')) cout << "yes" << endl;
+	else cout << "no" << endl;;
 
-	if (hasPath2(g, 'h', 'i')) cout << "yes";
-	else cout << "no";
+	if (hasPath2(g, 'h', 'i')) cout << "yes" << endl;
+	else cout << "no" << endl;;
 
-	if (hasPath1(g, 'i', 'h')) cout << "yes";
-	else cout << "no";
+	if (hasPath1(g, 'i', 'h')) cout << "yes" << endl;
+	else cout << "no" << endl;;
 
-	if (hasPath2(g, 'i', 'h')) cout << "yes";
-	else cout << "no";
+	if (hasPath2(g, 'i', 'h')) cout << "yes" << endl;
+	else cout << "no" << endl;;
+
+	cout << g.hasPath('i', 'h') << endl;
+	cout << g.hasPath('h', 'i') << endl;
 
 	return 0;
 
