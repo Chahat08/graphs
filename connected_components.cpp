@@ -23,3 +23,24 @@ APPROACH:
 
 	Move onto the next node.
 */
+#include <iostream>
+#include "graph.h"
+
+int main()
+{
+	Graph g;
+
+	g.add_node('1');
+	g.add_node('2');
+	g.add_node('3');
+	g.add_node('4');
+	g.add_node('5');
+	g.add_node('6');
+	g.add_node('7');
+	g.add_node('8');
+	
+	g.add_edge('1', '2');
+	g.add_edge('2', '1');
+	g.add_edge('6', '4');
+	g.add_edge('2', '1');
+}
