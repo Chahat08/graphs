@@ -24,7 +24,41 @@ APPROACH:
 	Move onto the next node.
 */
 #include <iostream>
+#include <queue>
+#include <unordered_set>
 #include "graph.h"
+
+using namespace std;
+
+void bfs(Graph g, char node, unordered_set<char>& visited)
+{
+	queue<char> q;
+	q.push(node);
+
+	while (!q.empty())
+	{
+		char c = q.front();
+		q.pop();
+		if (visited.find(c) != visited.end()) continue;
+		visited.insert(c);
+		for (char ch : g.get_neighbours(c)) q.push(ch);
+	}
+}
+
+int count_connected_components(Graph g)
+{
+	int cnt = 0;
+	unordered_set<char> vis;
+
+	for (char c : g.get_nodes())
+	{
+		if (vis.find(c) != vis.end()) continue;
+		bfs(g, c, vis); // couldve done dfs instead too
+		cnt++;
+	}
+
+	return cnt;
+}
 
 int main()
 {
@@ -39,8 +73,13 @@ int main()
 	g.add_node('7');
 	g.add_node('8');
 	
-	g.add_edge('1', '2');
-	g.add_edge('2', '1');
-	g.add_edge('6', '4');
-	g.add_edge('2', '1');
+	g.add_undirected_edge('1', '2');
+	g.add_undirected_edge('6', '4');
+	g.add_undirected_edge('6', '5');
+	g.add_undirected_edge('6', '7');
+	g.add_undirected_edge('6', '8');
+
+	cout << count_connected_components(g) << endl;
+
+	return 0;
 }

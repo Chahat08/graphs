@@ -23,6 +23,8 @@ void bfs(Graph g, char start_node)
 
 int main()
 {
+	// used g2
+
 	Graph g;
 
 	g.add_node('a');

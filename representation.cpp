@@ -47,6 +47,8 @@ void Graph::print_neighbours(char node)
 
 int main()
 {
+	// used g1
+
 	Graph g;
 
 	g.add_node('a');
