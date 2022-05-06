@@ -40,6 +40,8 @@ void dfs_rec(Graph g, char a)
 
 int main()
 {
+	// used g2
+
 	Graph g;
 
 	g.add_node('a');
