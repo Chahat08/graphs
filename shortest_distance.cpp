@@ -18,6 +18,7 @@ BFS is more evenly distributed in all directions from the source.
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <unordered_set>
 #include "graph.h"
 
 using namespace std;
@@ -27,12 +28,19 @@ int shortest_distance(Graph g, char src, char dest)
 	queue<pair<char, int>> q;
 	q.push({ src, 0 });
 
+	unordered_set<char> visited;
+
 	while (!q.empty())
 	{
 		pair<char, int> p = q.front();
 		q.pop();
+		visited.insert(p.first);
 		if (p.first == dest) return p.second;
-		for (char c : g.get_neighbours(p.first)) q.push({ c, p.second + 1 });
+		for (char c : g.get_neighbours(p.first))
+		{
+			if (visited.find(c) != visited.end()) continue;
+			q.push({ c, p.second + 1 });
+		}
 	}
 
 	// it is not possible to reach dest from src
@@ -55,7 +63,7 @@ int main()
 
 	g.create_ud_from_edge_list(edges);
 
-	cout << shortest_distance(g, 'w', 'z') << endl;
+	cout << shortest_distance(g, 'm', 's') << endl;
 
 	return 0;
 }
