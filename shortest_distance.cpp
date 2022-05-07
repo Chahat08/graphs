@@ -17,6 +17,7 @@ BFS is more evenly distributed in all directions from the source.
 */
 #include <iostream>
 #include <queue>
+#include <vector>
 #include "graph.h"
 
 using namespace std;
@@ -44,17 +45,15 @@ int main()
 
 	Graph g;
 
-	g.add_node('w');
-	g.add_node('x');
-	g.add_node('y');
-	g.add_node('v');
-	g.add_node('z');
+	vector<vector<char>> edges = {
+		{'w', 'x'},
+		{'x', 'y'},
+		{'z', 'y'},
+		{'z', 'v'},
+		{'w', 'v'}
+	};
 
-	g.add_undirected_edge('w', 'x');
-	g.add_undirected_edge('w', 'v');
-	g.add_undirected_edge('z', 'v');
-	g.add_undirected_edge('x', 'y');
-	g.add_undirected_edge('z', 'y');
+	g.create_ud_from_edge_list(edges);
 
 	cout << shortest_distance(g, 'w', 'z') << endl;
 

@@ -11,7 +11,7 @@ void Graph::create_from_edge_list(std::vector<std::vector<char>>& edges)
 	// create a graph from directed edges in the list
 
 	for (auto& v : edges)
-		adjacency_list[v[0]] = v[1];
+		adjacency_list[v[0]].push_back(v[1]);
 }
 
 void Graph::create_ud_from_edge_list(std::vector<std::vector<char>>& edges)
@@ -20,8 +20,8 @@ void Graph::create_ud_from_edge_list(std::vector<std::vector<char>>& edges)
 
 	for (auto& v : edges)
 	{
-		adjacency_list[v[0]] = v[1];
-		adjacency_list[v[1]] = v[0];
+		adjacency_list[v[0]].push_back(v[1]);
+		adjacency_list[v[1]].push_back(v[0]);
 	}
 }
 
