@@ -10,6 +10,13 @@
 * For each such traversal, increase the island count by 1.
 * Return the island count.
 */
+/*
+* COMPLEXITIES
+* 
+* r = num of rows, c = no of cols
+* Time Complexity: O(rc)
+* Space Complexity: O(rc)
+*/
 #include <iostream>
 #include <vector>
 #include <set>
