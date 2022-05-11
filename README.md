@@ -17,7 +17,7 @@ The adjacency list maps each node to the nodes that are connected to it.
 
 #### Functions defined by the interface
 ```cpp
-    void create_from_edge_list(std::vector<std::vector<char>>& edges);
+    	void create_from_edge_list(std::vector<std::vector<char>>& edges);
 	void create_ud_from_edge_list(std::vector<std::vector<char>>& edges);
 	void add_node(char node);
 	void add_edge(char node1, char node2);
